@@ -14,5 +14,5 @@ export const calculateTotalPrice=(data)=>{
         console.log(el.quantity)
         price+=(Number(el.price)*el.quantity);
     })
-    return price;
+    return price.toFixed(2);
 }

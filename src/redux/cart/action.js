@@ -2,7 +2,7 @@ export const ADD_TO_CART='add/to/cart';
 export const REMOVE_FROM_CART='remove/from/cart';
 export const INCREASE_QUANTITY='increase/quantity'
 export const DECREASE_QUANTITY='decrease/quantity'
-
+export const PLACE_ORDER='placed/order'
 
 export const addToCart=(data)=>async(dispatch)=>{
     dispatch({type:ADD_TO_CART,payload:data})
@@ -17,4 +17,8 @@ export const decreaeQuantity=(id)=>async(dispatch)=>{
 
 export const removeFromCart=(id)=>async(dispatch)=>{
     dispatch({type:REMOVE_FROM_CART,payload:id})
+}
+
+export const placeOrder=()=>async(dispatch)=>{
+    dispatch({type:PLACE_ORDER})
 }

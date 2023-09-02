@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
+  PLACE_ORDER,
   REMOVE_FROM_CART,
 } from "./action";
 
@@ -43,6 +44,8 @@ export const reducer = (state = init, { type, payload }) => {
             return rm;
         })||[],
       };
+      case PLACE_ORDER:
+        return init;
     default:
       return state;
   }

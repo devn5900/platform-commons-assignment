@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="bg-gray-200 p-4">
       <div className="w-[90%] m-auto ">
-        <div className="grid grid-cols-4 gap-3 ">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-col-1 gap-4 ">
           {products &&
             products.length > 0 &&
             products?.map((el) => {

@@ -18,19 +18,25 @@ const Product = ({name,id,image,weight,price,quantity,c}) => {
         dispatch(removeFromCart(id));
     }
   return (
-    <div className='bg-white p-2 flex flex-col gap-3'>
+    <div className='bg-white p-3 flex flex-col gap-3 rounded-md'>
         <img className=' aspect-square w-full' src={image} alt={name} />
-        <h1 className='text-lg font-bold '>{name.split(" ").splice(0,4).join(" ")}</h1>
-        <h2>Price: ${price}</h2>
-        {quantity&&<h2>Payable: ${Number(price)*quantity}</h2>}
-        <h2>Weight: {weight}</h2>
-        {!quantity&&<button className='p-2 bg-blue-600 text-white rounded-md cursor-pointer' onClick={sendToCart}>Add To Cart</button>}
-       {quantity&&<div className='flex gap-3 items-center justify-center'>
-            <button onClick={decreaseQuantityInCart} className='px-4 py-2 bg-blue-600 text-white rounded-md cursor-pointer'>-</button>
-            <span className='text-lg text-gray-800'>{quantity}</span>
-            <button onClick={increaseQuantityInCart} className='px-4 py-2 bg-blue-600 text-white rounded-md cursor-pointer'>+</button>
-        </div>}
-        {c&&<button className='p-2 bg-blue-600 text-white rounded-md cursor-pointer' onClick={removeCartItem}>Remove</button>}
+       <div className="px-6 flex flex-col gap-2" >
+        <h1 className='text-2xl font-bold truncate'>{name}</h1>
+          <div className='flex lg:text-sm md:text-xs justify-between'>
+          <h2 className=' text-gray-500'> {weight}</h2>
+            {quantity&&<h2 className=' font-bold'>Payable: ${(Number(price)*quantity).toFixed(2)}</h2>}
+          </div>
+            <div className=' flex lg:flex-row md:flex-col justify-between gap-2 items-center'>
+                <h2 className='text-xl font-extrabold '> ${price}</h2>
+                {!quantity&&<button className='p-2 font-semibold bg-blue-600 text-white rounded-md cursor-pointer' onClick={sendToCart}>Add To Cart</button>}
+            {quantity&&<div className='flex gap-3 items-center justify-center'>
+                    <button onClick={decreaseQuantityInCart} className='px-3 py-1 bg-blue-600 text-white rounded-md cursor-pointer'>-</button>
+                    <span className='text-lg text-gray-800'>{quantity}</span>
+                    <button onClick={increaseQuantityInCart} className='px-3 py-1 bg-blue-600 text-white rounded-md cursor-pointer'>+</button>
+                </div>}
+            </div>
+            {c&&<button className='p-2 bg-blue-600 text-white rounded-md cursor-pointer' onClick={removeCartItem}>Remove</button>}
+       </div>
     </div>
   )
 }
