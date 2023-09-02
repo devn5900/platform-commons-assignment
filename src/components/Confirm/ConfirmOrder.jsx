@@ -40,7 +40,7 @@ const ConfirmOrder = () => {
                         </p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
-                        ${Number(el.price)*el.quantity}
+                        ${(Number(el.price)*el.quantity).toFixed(2)}
                     </div>
                 </div>
             </li>
